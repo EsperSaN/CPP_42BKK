@@ -36,12 +36,10 @@ bool Contact::_setEmpty()
 bool Contact::_setFirstName()
 {
 	std::string firstNameInput;
-	
-	while (true)
-	{
+
+	while (true) {
 		firstNameInput = MyUtil::getLineAndTrim("Enter first name: ");
-		if (std::cin.eof() == true)
-		{
+		if (std::cin.eof() == true) {
 			MyUtil::clearEofBit();
 			std::cout << "EOF found!!! please rerun the ADD command!!!" << std::endl;
 			firstNameInput.erase();
@@ -61,12 +59,10 @@ bool Contact::_setFirstName()
 bool Contact::_setLastName()
 {
 	std::string lastNameInput;
-	
-	while (true)
-	{
+
+	while (true) {
 		lastNameInput = MyUtil::getLineAndTrim("And last name ??? : ");
-		if (std::cin.eof() == true)
-		{
+		if (std::cin.eof() == true) {
 			MyUtil::clearEofBit();
 			std::cout << "EOF found!!! please rerun the ADD command!!!" << std::endl;
 			lastNameInput.erase();
@@ -86,12 +82,10 @@ bool Contact::_setLastName()
 bool Contact::_setNickName()
 {
 	std::string nickNameInput;
-	
-	while (true)
-	{
+
+	while (true) {
 		nickNameInput = MyUtil::getLineAndTrim("give me your nice nickname!! : ");
-		if (std::cin.eof() == true)
-		{
+		if (std::cin.eof() == true) {
 			MyUtil::clearEofBit();
 			std::cout << "EOF found!!! please rerun the ADD command!!!" << std::endl;
 			nickNameInput.erase();
@@ -112,11 +106,9 @@ bool Contact::_setPhoneNumber()
 {
 	std::string phoneNumberInput;
 
-	while (true)
-	{
+	while (true) {
 		phoneNumberInput = MyUtil::getLineAndTrim("phone number? : ");
-		if (std::cin.eof() == true)
-		{
+		if (std::cin.eof() == true) {
 			MyUtil::clearEofBit();
 			std::cout << "EOF found!!! please rerun the ADD command!!!" << std::endl;
 			phoneNumberInput.erase();
@@ -137,25 +129,23 @@ bool Contact::_setDarkestSecret()
 {
 	std::string darkestSecretInput;
 	std::string darkestSecretBuffer;
-	
-	std::cout << "I'm listening... \n *send EOF to STOP telling me*\nWhat is your darkest secret?" << std::endl;
-	while (true)
-	{
+
+	std::cout << "I'm listening... \n *send EOF to STOP telling me*\nWhat is your darkest secret?"
+			  << std::endl;
+	while (true) {
 		darkestSecretInput = MyUtil::getLineAndTrim("> ");
-		if (std::cin.eof() == true)
-		{
+		if (std::cin.eof() == true) {
 			MyUtil::clearEofBit();
 			if (darkestSecretBuffer.empty() == true)
-				std::cout << "Don't be shyyyy Darkest secret cannot be empty try again" << std::endl;
-			else
-			{	
-				std::cout << "That's all??? anyway thank for trust me!!!"<< std::endl;
+				std::cout << "Don't be shyyyy Darkest secret cannot be empty try again"
+						  << std::endl;
+			else {
+				std::cout << "That's all??? anyway thank for trust me!!!" << std::endl;
 				break;
 			}
 			darkestSecretBuffer.erase();
 		}
-		else
-		{
+		else {
 			darkestSecretBuffer.append(darkestSecretInput);
 			darkestSecretBuffer.append("\n");
 		}
@@ -169,21 +159,17 @@ bool Contact::_setDarkestSecret()
 
 bool Contact::addContact()
 {
-	if (_setFirstName() == false || \
-			_setLastName() == false || \
-				_setNickName() == false || \
-					_setPhoneNumber() == false || \
-						_setDarkestSecret() == false)
-	{
+	if (_setFirstName() == false || _setLastName() == false || _setNickName() == false ||
+		_setPhoneNumber() == false || _setDarkestSecret() == false) {
 		return (_setEmpty(), false);
 	}
 	_assigned = 1;
-	std::cout << "\n\n****** Contact Added ******"      << std::endl;
-	std::cout << "Firstname     : " << _firstName		<< std::endl;
-	std::cout << "Lastname      : " << _lastName		<< std::endl;
-	std::cout << "Nickname      : " << _nickName		<< std::endl;
-	std::cout << "Phone number  : " << _phoneNumber 	<< std::endl;
-	std::cout << "Darkest secret: " << _darkestSecret   << std::endl;
+	std::cout << "\n\n****** Contact Added ******" << std::endl;
+	std::cout << "Firstname     : " << _firstName << std::endl;
+	std::cout << "Lastname      : " << _lastName << std::endl;
+	std::cout << "Nickname      : " << _nickName << std::endl;
+	std::cout << "Phone number  : " << _phoneNumber << std::endl;
+	std::cout << "Darkest secret: " << _darkestSecret << std::endl;
 	return (true);
 }
 
@@ -196,11 +182,11 @@ bool Contact::isAssigned()
 
 void Contact::showContact()
 {
-	std::cout << " > Firstname     : " << _firstName		<< std::endl;
-	std::cout << " > Lastname      : " << _lastName		<< std::endl;
-	std::cout << " > Nickname      : " << _nickName		<< std::endl;
-	std::cout << " > Phone number  : " << _phoneNumber 	<< std::endl;
-	std::cout << "****** Darkest secret ******\n" << _darkestSecret   << std::endl;
+	std::cout << " > Firstname     : " << _firstName << std::endl;
+	std::cout << " > Lastname      : " << _lastName << std::endl;
+	std::cout << " > Nickname      : " << _nickName << std::endl;
+	std::cout << " > Phone number  : " << _phoneNumber << std::endl;
+	std::cout << "****** Darkest secret ******\n" << _darkestSecret << std::endl;
 }
 
 void Contact::peekContact()
@@ -212,26 +198,23 @@ void Contact::peekContact()
 	firstNamepeek.assign(_firstName);
 	lastNamePeek.assign(_lastName);
 	nickNamePeek.assign(_nickName);
-	
-	if (firstNamepeek.length() > 10)
-	{
+
+	if (firstNamepeek.length() > 10) {
 		firstNamepeek.resize(9);
 		firstNamepeek.append(".");
 	}
-	if (lastNamePeek.length() > 10)
-	{
+	if (lastNamePeek.length() > 10) {
 		lastNamePeek.resize(9);
 		lastNamePeek.append(".");
 	}
-	if (nickNamePeek.length() > 10)
-	{
+	if (nickNamePeek.length() > 10) {
 		nickNamePeek.resize(9);
 		nickNamePeek.append(".");
 	}
-	std::cout << std::setw(10) << firstNamepeek << "|" ;
-	std::cout << std::setw(10) << lastNamePeek  << "|";
-	std::cout << std::setw(10) << nickNamePeek  << "|" << std::endl;
-	
+	std::cout << std::setw(10) << firstNamepeek << "|";
+	std::cout << std::setw(10) << lastNamePeek << "|";
+	std::cout << std::setw(10) << nickNamePeek << "|" << std::endl;
+
 	firstNamepeek.erase();
 	lastNamePeek.erase();
 	nickNamePeek.erase();

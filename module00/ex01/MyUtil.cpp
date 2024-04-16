@@ -18,7 +18,7 @@ std::string MyUtil::stringTrim(std::string str)
 	std::size_t frontTrimIndex;
 	std::size_t backTrimIndex;
 	std::string trimmedString;
-	
+
 	toTrim.assign(" \t");
 	frontTrimIndex = str.find_first_not_of(toTrim);
 	backTrimIndex = str.find_last_not_of(toTrim);
@@ -47,12 +47,11 @@ void MyUtil::clearEofBit()
 bool MyUtil::isAllDigit(std::string str)
 {
 	std::size_t i;
-	
+
 	i = 0;
 	if (str[i] == '+' && str.length() > 1)
 		i++;
-	while (str[i])
-	{
+	while (str[i]) {
 		if (std::isdigit(str[i]) == false)
 			return (false);
 		i++;

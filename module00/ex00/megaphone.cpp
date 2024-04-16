@@ -12,8 +12,8 @@
 
 #include <iostream>
 
-// the static_cast<type> use in cpp to cast and show the error on the compile 
-//but c style cast (type) not show the error (just warning)
+// the static_cast<type> use in cpp to cast and show the error on the compile
+// but c style cast (type) not show the error (just warning)
 
 int main(int ac, char **av)
 {
@@ -28,6 +28,7 @@ int main(int ac, char **av)
 	std::cout << std::endl;
 }
 
-// In summary, using std::endl in C++ will flush the output buffer and write the data to the output device immediately, 
-// while using \n will not flush the output buffer until it is necessary or manually triggered.
-// << std::endl same to std::cout << ‘\n’ << flush; 
+// In summary, using std::endl in C++ will flush the output buffer and write the data to the output
+// device immediately, while using \n will not flush the output buffer until it is necessary or
+// manually triggered.
+// << std::endl same to std::cout << ‘\n’ << flush;

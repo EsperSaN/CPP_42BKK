@@ -11,13 +11,15 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-# include <string>
-# include <cstring>
+
+#include <cstring>
+#include <string>
 PhoneBook::PhoneBook()
 {
-	std::cout << PHONEBOOK_WELCOME 						       									 	 << std::endl;
-	std::cout << "\nMaximum contact are : "    << MAX_CONTACTS 									 	 << std::endl;
-	std::cout << "if contact are more than " << MAX_CONTACTS << " we will add to the oldest one\n\n" << std::endl;
+	std::cout << PHONEBOOK_WELCOME << std::endl;
+	std::cout << "\nMaximum contact are : " << MAX_CONTACTS << std::endl;
+	std::cout << "if contact are more than " << MAX_CONTACTS << " we will add to the oldest one\n\n"
+			  << std::endl;
 	_lastAddIndex = 0;
 	_assignedCount = 0;
 }
@@ -31,8 +33,7 @@ PhoneBook::~PhoneBook()
 void PhoneBook::addContact()
 {
 	std::cout << ADD_MENU << std::endl << std::endl;
-	if (_contact[_lastAddIndex].addContact() == true)
-	{
+	if (_contact[_lastAddIndex].addContact() == true) {
 		_lastAddIndex++;
 		_assignedCount++;
 		if (_lastAddIndex > MAX_CONTACTS - 1)
@@ -41,26 +42,23 @@ void PhoneBook::addContact()
 	}
 	else
 		std::cout << CONTACT_ADD_FAIL << std::endl << std::endl;
-	return ;
+	return;
 }
 
 void PhoneBook::searchContact()
 {
 	std::string inputIndex;
-	int	index;
-	
-	if (_assignedCount <= 0)
-	{
+	int index;
+
+	if (_assignedCount <= 0) {
 		std::cout << NO_CONTACT << std::endl << std::endl;
-		return ;
+		return;
 	}
 	std::cout << SEARCH_MENU << std::endl;
 	index = 0;
-	while (index < MAX_CONTACTS)
-	{
-		if (_contact[index].isAssigned() == true)
-		{
-			std::cout << "|" << std::setw(10) << (index + 1) << "|"<< std::flush;
+	while (index < MAX_CONTACTS) {
+		if (_contact[index].isAssigned() == true) {
+			std::cout << "|" << std::setw(10) << (index + 1) << "|" << std::flush;
 			_contact[index].peekContact();
 		}
 		index++;
@@ -72,16 +70,14 @@ void PhoneBook::searchContact()
 void PhoneBook::_getContact()
 {
 	std::string inputIndex;
-	
-	while (true)
-	{
+
+	while (true) {
 		inputIndex = MyUtil::getLineAndTrim("Index to Show (1 - 8) : ");
-		if (std::cin.eof() == true)
-		{
+		if (std::cin.eof() == true) {
 			MyUtil::clearEofBit();
 			std::cout << "EOF found!!! please rerun the command!!!" << std::endl;
 			inputIndex.erase();
-			return ;
+			return;
 		}
 		else if (inputIndex.empty() == true)
 			std::cout << "Index cannot be empty try again (1 - 8)" << std::endl;

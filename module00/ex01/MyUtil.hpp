@@ -11,18 +11,18 @@
 /* ************************************************************************** */
 
 #ifndef MYUTIL_HPP
-# define MYUTIL_HPP
+#define MYUTIL_HPP
 
-# include <iostream>
-# include <stdio.h>
-# include <iomanip>
+#include <stdio.h>
 
-namespace MyUtil
-{
-	std::string stringTrim(std::string str);
-	std::string getLineAndTrim(std::string prompt);
-	void 		clearEofBit();
-	bool		isAllDigit(std::string str);
-}
+#include <iomanip>
+#include <iostream>
+
+namespace MyUtil {
+std::string stringTrim(std::string str);
+std::string getLineAndTrim(std::string prompt);
+void clearEofBit();
+bool isAllDigit(std::string str);
+}  // namespace MyUtil
 
 #endif
