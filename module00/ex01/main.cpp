@@ -10,26 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
-
 #include <csignal>
 #include <cstdlib>
 
-# define EXIT_COMMAND "EXIT"
-# define ADD_COMMAND "ADD"
-# define SEARCH_COMMAND "SEARCH"
-# define PROMPT "Enter Command: "
+#include "PhoneBook.hpp"
+
+#define EXIT_COMMAND "EXIT"
+#define ADD_COMMAND "ADD"
+#define SEARCH_COMMAND "SEARCH"
+#define PROMPT "Enter Command: "
 
 int main()
 {
 	PhoneBook book;
 	std::string inputCommands;
 
-	while (true)
-	{
+	while (true) {
 		inputCommands = MyUtil::getLineAndTrim(PROMPT);
-		if (inputCommands != EXIT_COMMAND)
-		{
+		if (inputCommands != EXIT_COMMAND) {
 			if (0 == inputCommands.compare(ADD_COMMAND))
 				book.addContact();
 			else if (inputCommands == SEARCH_COMMAND)
