@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 16:39:38 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/04/16 20:58:02 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/04/28 00:25:44 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define ST_MAX_CONTACTS "8"
 # define MAX_CONTACTS 8
+
 
 #include "Contact.hpp"
 
