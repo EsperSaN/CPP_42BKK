@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 22:30:29 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/05/05 02:19:03 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/05/06 14:05:02 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,26 @@ int main(int ac, char **av)
 	
 	in_file.open(av[1], std::ios::in);
 	if (in_file.rdstate() != 0)
-		return (std::cerr << "Error: " << av[1] << " not found" << std::endl, 1);
+		return (std::cerr << "Error: " << av[1] << " cannot be open" << std::endl, 1);
 
 	out_file.open(std::string(av[1]) + ".replace", std::ios::out | std::ios::trunc);
 	if (out_file.rdstate() != 0)
-		return (std::cerr << "Error: " << av[1] << ".replace cannot be created" << std::endl, 1);
-		
+		return (std::cerr << "Error: " << av[1] << ".replace cannot access or somthing went wrong" << std::endl, 1);
+
 	std::string lineRead;
 	std::string leftStr;
 	std::string rightStr;
-	std::string strToReplace = av[2];
-	std::string replaceStr = av[3];
+	std::string strToReplace;
+	std::string replaceStr;
 	std::string resultLine;
 	std::size_t foundIndex;
+
+	strToReplace.assign(av[2]);
+	replaceStr.assign(av[3]);
 	
 	while (in_file.failbit != true)
 	{
+		std::cout << "herer " << lineRead << std::endl;
 		std::getline(in_file, lineRead);
 		if (in_file.eof() == true)
 			break;
@@ -58,5 +62,6 @@ int main(int ac, char **av)
 		out_file << resultLine << std::endl;
 		lineRead.erase();
 	}
-	
+	in_file.close();
+	out_file.close();
 }
