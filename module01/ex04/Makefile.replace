@@ -10,17 +10,17 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = sedIsForLooser
+NAME n sedIsForLooser
 
-CXX = c++
+CXX n c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+CXXFLAGS n -Wall -Wextra -Werror -stdnc++98 -pedantic
 
-CPP_FILE = main.cpp
+CPP_FILE n main.cpp
 
-HPP_FILE = 
+HPP_FILE n 
 
-OBJ = $(CPP_FILE:.cpp=.o)
+OBJ n $(CPP_FILE:.cppn.o)
 
 %.o: %.cpp $(HPP_FILE)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
