@@ -6,23 +6,16 @@
 /*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 16:41:09 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/05/07 22:27:24 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/05/09 16:34:06 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Fixed.hpp"
-#define FRACTIONAL_BITS 8
-#define DEFAULT "Default constructor called"
-#define DESTRUCTOR "Destructor called"
-#define COPY "Copy constructor called"
-#define ASSIGN "Copy assignment operator calle"
-#define GET "getRawBits member function called"
-#define SET "setRawBits member function called"
 //https://stackoverflow.com/questions/476272/how-can-i-properly-overload-the-operator-for-an-ostream
 //global function
 std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
 {
-	out << fixed.toFloat();
+	out << fixed.toFloat() << std::flush;
 	return (out);
 }
 
@@ -34,25 +27,27 @@ Fixed::Fixed(void)
 
 Fixed::~Fixed(void)
 {
+	this->_fixedPointValue = 0;
 	std::cout << DESTRUCTOR << std::endl;
 }
 
 Fixed::Fixed(const int integer)
 {
-	std::cout << DEFAULT << std::endl;
-	this->_fixedPointValue = (integer << FRACTIONAL_BITS);
+	std::cout << "INT : " <<  DEFAULT << std::endl;
+	this->_fixedPointValue = (integer * (1 << FRACTIONAL_BITS));
 }
 
 Fixed::Fixed(const float floatingPoint)
 {
-	std::cout << DEFAULT << std::endl;
+	std::cout << "Float : " << DEFAULT << std::endl;
 	this->_fixedPointValue = roundf(floatingPoint * (1 << FRACTIONAL_BITS));
 }
 
 Fixed::Fixed(const Fixed &src)
 {
 	std::cout << COPY << std::endl;
-	this->_fixedPointValue = src.getRawBits();
+	this->operator=(src);
+	//*this = src;
 }
 
 //https://www.geeksforgeeks.org/assignment-operator-overloading-in-c/
@@ -64,6 +59,7 @@ Fixed &Fixed::operator=(const Fixed &rightSide)
 		this->_fixedPointValue = rightSide.getRawBits();
 	return *this;
 }
+
 
 int	Fixed::getRawBits(void) const
 {
@@ -77,10 +73,11 @@ void Fixed::setRawBits(int const raw)
 	this->_fixedPointValue = raw;
 }
 
+
 float Fixed::toFloat(void) const
 {
 	float result;
-	result = static_cast<float>(this->_fixedPointValue) / (1 << FRACTIONAL_BITS);
+	result = (static_cast<float>(this->_fixedPointValue)) / (1 << FRACTIONAL_BITS);
 	return (result);
 }
 
@@ -88,4 +85,3 @@ int Fixed::toInt(void) const
 {
 	return (this->_fixedPointValue >> FRACTIONAL_BITS);
 }
-
