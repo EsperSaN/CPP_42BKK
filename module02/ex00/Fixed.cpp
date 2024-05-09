@@ -6,18 +6,11 @@
 /*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 16:41:09 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/05/06 08:08:18 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/05/09 12:29:10 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Fixed.hpp"
-#define FRACTIONAL_BITS 8
-#define DEFAULT "Default constructor called"
-#define DESTRUCTOR "Destructor called"
-#define COPY "Copy constructor called"
-#define ASSIGN "Copy assignment operator calle"
-#define GET "getRawBits member function called"
-#define SET "setRawBits member function called"
 
 Fixed::Fixed(void)
 {
@@ -27,14 +20,15 @@ Fixed::Fixed(void)
 
 Fixed::~Fixed(void)
 {
+	this->_fixedPointValue = 0;
 	std::cout << DESTRUCTOR << std::endl;
 }
 
 Fixed::Fixed(const Fixed &src)
 {
 	std::cout << COPY << std::endl;
-	// *this = src;
-	this->_fixedPointValue = src.getRawBits();
+	this->operator=(src);
+	// this->_fixedPointValue = src.getRawBits();
 }
 
 //https://www.geeksforgeeks.org/assignment-operator-overloading-in-c/
