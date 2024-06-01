@@ -63,13 +63,13 @@ Fixed &Fixed::operator=(const Fixed &rightSide)
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << GET << std::endl;
+	//std::cout << GET << std::endl;
 	return this->_fixedPointValue;
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	std::cout << SET << std::endl;
+	//std::cout << SET << std::endl;
 	this->_fixedPointValue = raw;
 }
 

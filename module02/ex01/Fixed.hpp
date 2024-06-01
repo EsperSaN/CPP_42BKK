@@ -27,12 +27,12 @@
 class Fixed {
 	public :
 		Fixed(void);
+		Fixed(const int integer);
+		Fixed(const float floatingPoint);
 		~Fixed(void);
 		Fixed(const Fixed &src);
 		Fixed &operator=(const Fixed &rightSide);
 		//othordox things
-		Fixed(const int integer);
-		Fixed(const float floatingPoint);
 		//getters and setters		
 		int		getRawBits(void) const;
 		void 	setRawBits(int const raw);
