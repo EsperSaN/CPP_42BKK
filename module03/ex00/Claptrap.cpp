@@ -1,51 +1,70 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Claptrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 09:25:08 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/05/08 22:34:14 by pruenrua         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Claptrap.hpp"
 
-Claptrap::Claptrap(void) : _name("Claptrap"), _hitPoints(100), _energyPoints(100), _attackDamage(0) {
-	std::cout << "Claptrap default constructor called" << std::endl;
+ClapTrap::ClapTrap(void) : _name(DEFAULT_NAME), _hitPoint(CT_HP) , _energyPoint(CT_EP) , _attackDamage(CT_ATK)
+{
+	std::cout << "Default Constructor : " << this->_name << " the Claptrap Spawn!!" << std::endl;
 }
 
-Claptrap::Claptrap(std::string name) : _name(name), _hitPoints(100), _energyPoints(100), _attackDamage(0) {
-	std::cout << "Claptrap name constructor called" << std::endl;
+ClapTrap::ClapTrap(std::string	name) :  _name(name), _hitPoint(CT_HP) , _energyPoint(CT_EP) , _attackDamage(CT_ATK)
+{
+	std::cout << "Default <NAME> Constructor : " << this->_name << " the Claptrap Spawn!!" << std::endl;
 }
 
-Claptrap::Claptrap(const Claptrap& other) {
-	std::cout << "Claptrap copy constructor called" << std::endl;
+ClapTrap::~ClapTrap(void)
+{
+	std::cout << "Deconstructor : " << this->_name << " deconstructor Call TT" << std::endl;
+}
+
+ClapTrap::ClapTrap(const	ClapTrap&	other)
+{
+	std::cout << "Copy constructor Call : Copying < " << other._name << " >" << std::endl;
+	// add the assiggned op
 	*this = other;
 }
 
-Claptrap::~Claptrap(void) {
-	std::cout << "Claptrap destructor called" << std::endl;
+ClapTrap	&ClapTrap::operator=(const	ClapTrap&	rhs)
+{
+	std::cout << this->_name << ": Assignment Operator Call" << std::endl;
+	if (this == &rhs)
+		return (*this);
+	this->_name = rhs._name;
+	this->_hitPoint = rhs._attackDamage;
+	this->_energyPoint = rhs._energyPoint;
+	this->_attackDamage = rhs._attackDamage;
+	return (*this);
 }
 
-void Claptrap::takeDamage(unsigned int amount) {
-	std::cout << "Claptrap " << this->_name << " take " << amount << " points of damage!" << std::endl;
-	this->_hitPoints -= amount;
-}
-
-void Claptrap::attack(std::string const& target) {
-	this->_energyPoints -= 1;
-	std::cout << "Claptrap " << this->_name << " attack " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
-}
-
-void Claptrap::beRepaired(unsigned int amount) {
-	std::cout << "Claptrap " << this->_name << " be repaired " << amount << " points!" << std::endl;
-	if (this->_energyPoints <= 0)
+void	ClapTrap::attack(const	std::string&	target)
+{
+	if (this->_energyPoint <= 0 || this->_hitPoint <= 0)
 	{
-		std::cout << "Claptrap " << this->_name << " is out of energy!" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " Cannot attack " << std::endl;
 		return ;
 	}
-	this->_hitPoints += amount;
-	this->_energyPoints -= 1;
+	this->_energyPoint -= 1;
+	std::cout << "ClapTrap  " << this->_name << "  attack  " << target << std::flush;
+	std::cout << "  , causing  " << this->_attackDamage << "  points of damage!" << std::endl;
+}
+
+void	ClapTrap::takeDamage(unsigned	int	amount)
+{
+	if (this->_hitPoint <= 0)
+		std::cout << "ClapTrap : " << this->_name << " already dead x_x" << std::endl;
+	if (this->_hitPoint <= static_cast<int>(amount))
+		amount = this->_hitPoint;
+	this->_hitPoint -= amount;
+	std::cout << "Clap Trap : " << this->_name << " take < " << amount << " > of damege!!!" << std::endl;
+}
+
+void	ClapTrap::beRepaired(unsigned	int	amount)
+{
+	if (this->_energyPoint <= 0 || this->_hitPoint <= 0)
+	{
+		std::cout << "ClapTrap " << this->_name << " Cannot repair " << std::endl;
+		return ;
+	}
+	this->_energyPoint -= 1;
+	this->_hitPoint += amount;
+	std::cout << "ClapTrap  " << this->_name << "  repair  " << amount << std::flush;
+	std::cout << "  point of hitpoint!! now it have  " << this->_hitPoint << "  points" << std::endl;
 }
