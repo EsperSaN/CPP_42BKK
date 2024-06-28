@@ -9,5 +9,5 @@ int main()
 	aa.attack("wave");
 	aa.takeDamage(10);
 	aa.takeDamage(10);
-
+	aa.attack("wave");
 }

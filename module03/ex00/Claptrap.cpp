@@ -2,33 +2,32 @@
 
 ClapTrap::ClapTrap(void) : _name(DEFAULT_NAME), _hitPoint(CT_HP) , _energyPoint(CT_EP) , _attackDamage(CT_ATK)
 {
-	std::cout << "Default Constructor : " << this->_name << " the Claptrap Spawn!!" << std::endl;
+	std::cout << "ClapTrap Default Constructor : " << this->_name << " the Claptrap Spawn!!" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string	name) :  _name(name), _hitPoint(CT_HP) , _energyPoint(CT_EP) , _attackDamage(CT_ATK)
 {
-	std::cout << "Default <NAME> Constructor : " << this->_name << " the Claptrap Spawn!!" << std::endl;
+	std::cout << "ClapTrap NAME Constructor : " << this->_name << " the Claptrap Spawn!!" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "Deconstructor : " << this->_name << " deconstructor Call TT" << std::endl;
+	std::cout << "ClapTrap Deconstructor : " << this->_name << " deconstructor Call TT" << std::endl;
 }
 
 ClapTrap::ClapTrap(const	ClapTrap&	other)
 {
-	std::cout << "Copy constructor Call : Copying < " << other._name << " >" << std::endl;
-	// add the assiggned op
+	std::cout << "ClapTrap Copy constructor Call : Copying < " << other._name << " >" << std::endl;
 	*this = other;
 }
 
 ClapTrap	&ClapTrap::operator=(const	ClapTrap&	rhs)
 {
-	std::cout << this->_name << ": Assignment Operator Call" << std::endl;
+	std::cout << this->_name << " the ClapTrap : Assignment Operator Call" << std::endl;
 	if (this == &rhs)
 		return (*this);
 	this->_name = rhs._name;
-	this->_hitPoint = rhs._attackDamage;
+	this->_hitPoint = rhs._hitPoint;
 	this->_energyPoint = rhs._energyPoint;
 	this->_attackDamage = rhs._attackDamage;
 	return (*this);
@@ -54,6 +53,7 @@ void	ClapTrap::takeDamage(unsigned	int	amount)
 		amount = this->_hitPoint;
 	this->_hitPoint -= amount;
 	std::cout << "Clap Trap : " << this->_name << " take < " << amount << " > of damege!!!" << std::endl;
+	std::cout << "Clap Trap : " << this->_name << " have < " << this->_hitPoint << " > of hitpoint left" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned	int	amount)

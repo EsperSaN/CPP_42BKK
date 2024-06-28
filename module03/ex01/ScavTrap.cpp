@@ -1,7 +1,5 @@
 #include "ScavTrap.hpp"
 
-
-
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
 	this->_energyPoint = SC_EP;
@@ -46,5 +44,12 @@ void	ScavTrap::guardGate(void)
 
 void	ScavTrap::attack(const std::string& target)
 {
-	std::cout << "ScavTrap " << this->_name << " attack " << target << " with " << this->_attackDamage << " points of damage!" << std::endl;
+	if (this->_energyPoint <= 0 || this->_hitPoint <= 0)
+	{
+		std::cout << "ScavTrap " << this->_name << " Cannot attack " << std::endl;
+		return ;
+	}
+	this->_energyPoint -= 1;
+	std::cout << "ScavTrap " << this->_name << "  attack  " << target << std::flush;
+	std::cout << "  , causing  " << this->_attackDamage << "  points of damage!" << std::endl;
 }

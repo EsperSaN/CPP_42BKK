@@ -18,13 +18,12 @@ ClapTrap::~ClapTrap(void)
 ClapTrap::ClapTrap(const	ClapTrap&	other)
 {
 	std::cout << "ClapTrap Copy constructor Call : Copying < " << other._name << " >" << std::endl;
-	// add the assiggned op
 	*this = other;
 }
 
 ClapTrap	&ClapTrap::operator=(const	ClapTrap&	rhs)
 {
-	std::cout << this->_name << ": Assignment Operator Call (ClapTrap)" << std::endl;
+	std::cout << this->_name << " the ClapTrap : Assignment Operator Call" << std::endl;
 	if (this == &rhs)
 		return (*this);
 	this->_name = rhs._name;
