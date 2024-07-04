@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:27:42 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/04 02:01:27 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/04 19:18:16 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	Bureaucrat::increment(void)
 	if ((this->_grade - 1) < MAXIMUM_GRADE)
 		throw	Bureaucrat::GradeTooHighException();
 	this->_grade = this->_grade - 1;
+	std::cout << "The " << this->getName() << " get promoted to " << this->getGrade() << std::endl; 
 }
 
 void	Bureaucrat::decrement(void)
@@ -72,4 +73,15 @@ void	Bureaucrat::decrement(void)
 	if ((this->_grade + 1) > LOWEST_GRADE)
 		throw	Bureaucrat::GradeTooLowException();
 	this->_grade = this->_grade + 1;
+std::cout << "The " << this->getName() << " get depromoted to " << this->getGrade() << std::endl; 
+}
+
+const	char	*Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return (TOO_HIGH);
+}
+
+const	char	*Bureaucrat::GradeTooLowException::what()	const	throw()
+{
+	return (TOO_LOW);
 }

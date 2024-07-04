@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:28:02 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/04 01:57:14 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/04 19:20:27 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 #define	MAXIMUM_GRADE	1
 #define	LOWEST_GRADE	150
 
-#define TOO_HIGH	"The Grade is too high!!!"
-#define	TOO_LOW	"The Grade is too low!!!"
+#define TOO_HIGH	"Exception : The Grade is too high!!!"
+#define	TOO_LOW	"Exception : The Grade is too low!!!"
 #define DEF_CON	"void Constructor Called : "
 #define	ATT_CON "Attribute Constructor Called : "
 #define	DE_CON	"Deconstructor Called : "
@@ -46,14 +46,12 @@ class Bureaucrat
 	class	GradeTooHighException : public std::exception
 	{
         public:
-            virtual const char* what() const throw() { return TOO_HIGH; }
+            virtual const char* what() const throw();
 	};
 	class 	GradeTooLowException : public std::exception
 	{
 		public:
-            virtual const char* what() const throw() { return TOO_LOW; }
+            virtual const char* what() const throw();
 	};
 };
 std::ostream&	operator<<(std::ostream& os, Bureaucrat	&rhs);
-
-
