@@ -3,27 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 22:56:50 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/03 16:32:05 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/04 19:50:23 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-#include "Bureaucrat.hpp"
-class Bureaucrat;
 
-#define GTOO_HIGH	"The Grade is too high!!!"
-#define	GTOO_LOW	"The Grade is too low !!!"
+#include "./Bureaucrat.hpp"
+
+//class forward declaration
+
+
+#define FTOO_HIGH	"The Grade is too high!!!"
+#define	FTOO_LOW	"The Grade is too low !!!"
 
 #define FDEF_CON	"Form void Constructor Called : "
 #define	FATT_CON "Form Attribute Constructor Called : "
 #define	FDE_CON	"Form Deconstructor Called : "
 #define	FCPY_CON	"Form Copy Constructor Called : "
 #define	FAS_OP	"Form Assignment Operator Called : "
+
+#define	FLOWEST_GRADE 150
+#define	FMAXIMUM_GRADE	1
+#define	FDEF_NAME "Default constact"
 
 
 class	Form
@@ -45,17 +52,17 @@ class	Form
 		int 				getRequireExe(void);
 		const	std::string	getName(void);
 		
-		void				beSigned(Bureaucrat	&who);
+		void				beSigned(class Bureaucrat	&who);
 
 		class	GradeTooHighException	:	public	std::exception
 		{
      	   public:
-        	    virtual const char* what() const throw() { return GTOO_HIGH; }
+        	    virtual const char* what() const throw();
 		};
 		class	GradeTooLowException	:	public	std::exception
 		{
         	public:
-            	virtual const char* what() const throw() { return GTOO_LOW; }
+            	virtual const char* what() const throw();
 		};
 };
 

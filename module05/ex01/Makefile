@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+         #
+#    By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/17 21:05:54 by pruenrua          #+#    #+#              #
-#    Updated: 2024/07/03 15:49:42 by pruenrua         ###   ########.fr        #
+#    Updated: 2024/07/04 19:29:20 by pruenrua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

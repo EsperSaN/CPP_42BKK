@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:34:02 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/03 16:30:17 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/04 19:35:09 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ std::ostream &operator<<(std::ostream	&o,	Form	&form)
 	return (o);
 }
 
-Form::Form(void) : _name(DEF_NAME),	_reqGrade(LOWEST_GRADE)	,_reqExe(LOWEST_GRADE)
+Form::Form(void) : _name(FDEF_NAME),	_reqGrade(FLOWEST_GRADE)	,_reqExe(FLOWEST_GRADE)
 {
 	std::cout << FDEF_CON << std::endl << *this << std::flush;
 }
@@ -31,9 +31,9 @@ Form::Form(void) : _name(DEF_NAME),	_reqGrade(LOWEST_GRADE)	,_reqExe(LOWEST_GRAD
 Form::Form(std::string	name, int	reqGrade, int	reqExe) : _name(name),  _reqGrade(reqGrade), _reqExe(reqExe)
 {
 	std::cout	<< FATT_CON << std::endl << *this << std::flush;
-	if (this->_reqExe < MAXIMUM_GRADE || this->_reqGrade < MAXIMUM_GRADE)
+	if (this->_reqExe < FMAXIMUM_GRADE || this->_reqGrade < FMAXIMUM_GRADE)
 		throw	Form::GradeTooHighException();
-	if (this->_reqExe > LOWEST_GRADE || this->_reqGrade > LOWEST_GRADE)
+	if (this->_reqExe > FLOWEST_GRADE || this->_reqGrade > FLOWEST_GRADE)
 		throw	Form::GradeTooLowException();
 }
 
@@ -81,4 +81,14 @@ int	Form::getRequireExe(void)
 const	std::string	Form::getName(void)
 {
 	return (this->_name);
+}
+
+const	char	*Form::GradeTooHighException::what() const throw()
+{
+	return (FTOO_HIGH);
+}
+
+const	char	*Form::GradeTooLowException::what()	const	throw()
+{
+	return (FTOO_LOW);
 }
