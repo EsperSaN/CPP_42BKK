@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 22:56:50 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/04 19:50:23 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/05 10:34:38 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@
 //class forward declaration
 
 
-#define FTOO_HIGH	"The Grade is too high!!!"
-#define	FTOO_LOW	"The Grade is too low !!!"
+#define FTOO_HIGH	"Form : The Grade is too high!!!"
+#define	FTOO_LOW	"Form : The Grade is too low !!!"
 
-#define FDEF_CON	"Form void Constructor Called : "
-#define	FATT_CON "Form Attribute Constructor Called : "
-#define	FDE_CON	"Form Deconstructor Called : "
-#define	FCPY_CON	"Form Copy Constructor Called : "
-#define	FAS_OP	"Form Assignment Operator Called : "
+#define FDEF_CON	"Form : void Constructor Called : "
+#define	FATT_CON "Form : Attribute Constructor Called : "
+#define	FDE_CON	"Form : Deconstructor Called : "
+#define	FCPY_CON	"Form : Copy Constructor Called : "
+#define	FAS_OP	"Form : Assignment Operator Called : "
 
 #define	FLOWEST_GRADE 150
 #define	FMAXIMUM_GRADE	1
-#define	FDEF_NAME "Default constact"
+#define	FDEF_NAME "Default contact"
 
 
 class	Form

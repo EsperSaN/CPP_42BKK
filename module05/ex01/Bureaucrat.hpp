@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:28:02 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/04 19:45:13 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/05 10:33:44 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 #define	MAXIMUM_GRADE	1
 #define	LOWEST_GRADE	150
 
-#define TOO_HIGH	"Exception : The Grade is too high!!!"
-#define	TOO_LOW	"Exception : The Grade is too low!!!"
-#define DEF_CON	"void Constructor Called : "
-#define	ATT_CON "Attribute Constructor Called : "
-#define	DE_CON	"Deconstructor Called : "
-#define	CPY_CON	"Copy Constructor Called : "
-#define	AS_OP	"Assignment Operator Called : "
+#define TOO_HIGH "Bureaucrat : The Grade is too high!!!"
+#define	TOO_LOW	"Bureaucrat : The Grade is too low!!!"
+#define DEF_CON	"Bureaucrat : void Constructor Called : "
+#define	ATT_CON "Bureaucrat : Attribute Constructor Called : "
+#define	DE_CON	"Bureaucrat : Deconstructor Called : "
+#define	CPY_CON	"Bureaucrat : Copy Constructor Called : "
+#define	AS_OP	"Bureaucrat : Assignment Operator Called : "
 
 class Bureaucrat
 {

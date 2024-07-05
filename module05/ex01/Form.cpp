@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:34:02 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/04 19:35:09 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/05 10:41:52 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ Form::Form(void) : _name(FDEF_NAME),	_reqGrade(FLOWEST_GRADE)	,_reqExe(FLOWEST_G
 
 Form::Form(std::string	name, int	reqGrade, int	reqExe) : _name(name),  _reqGrade(reqGrade), _reqExe(reqExe)
 {
-	std::cout	<< FATT_CON << std::endl << *this << std::flush;
 	if (this->_reqExe < FMAXIMUM_GRADE || this->_reqGrade < FMAXIMUM_GRADE)
 		throw	Form::GradeTooHighException();
 	if (this->_reqExe > FLOWEST_GRADE || this->_reqGrade > FLOWEST_GRADE)
