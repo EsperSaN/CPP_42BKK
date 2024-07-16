@@ -72,13 +72,12 @@ Form    *Intern::makeForm(std::string   formToCreate, std::string   target)
     form[0] = "robotomyrequestform";
     form[1] = "presidentialpardonform";
     form[2] = "shrubberycreationform";
-    int i = 0;
-
+    
+	int i = 0;
     while (formToCreate[i])
     {
-        if (std::isspace(formToCreate[i]))
-            formToCreate.erase
-        formToCreate[i] = std::tolower(formToCreate[i]);
+		if (form[i] == formToCreate)
+			return (function[i](target));
         i++;
     }
     std::cout << formToCreate << "and " << target << std::endl;

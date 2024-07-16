@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:26:54 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/09 20:33:55 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/17 05:19:08 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,13 @@ int main()
 {
 	Intern	wave;
 
-	Form* test = wave.makeForm("Robotom     yeiei", "42");
+	Form* test = wave.makeForm("shrubberycreationform", "42");
+	Form*	ff = wave.makeForm("presidentialpardonform", "42");
+	Bureaucrat	b("wave", 1);
 
-	(void) test;
-	tryEXE("wave", 1, "test1", SH);
-	tryEXE("LEK" , 150, "test2", SH);
-	tryEXE("wave", 1, "test1", RB);
-	tryEXE("LEK" , 150, "test2", RB);
+	b.executeForm(*test);
+	
+	b.executeForm(*ff);
+	delete ff;
+	delete test;
 }
