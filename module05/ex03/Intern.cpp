@@ -15,18 +15,19 @@
 
 Intern::Intern(void)
 {
-	std::cout << DEF_CON <<  std::endl;
+	std::cout << "Intern : Constructor Call" <<  std::endl;
 }
 
 
 Intern::Intern(const	Intern&	other)
 {
-	std::cout << CPY_CON << "Copy From >> " << std::endl;
+	std::cout << "Intern : Copy constructor Call : Intern do Nothing" << std::endl;
     (void)other;
 }
 
 Intern	&Intern::operator=(const	Intern&	rhs)
 {
+    std::cout << "Intern : Assignment Operator Call" << std::endl;
 	if (this == &rhs)
 		return (*this);
 	return (*this);
@@ -34,7 +35,7 @@ Intern	&Intern::operator=(const	Intern&	rhs)
 
 Intern::~Intern(void)
 {
-	std::cout << DE_CON << std::endl;
+	std::cout << "Intern : Deconstructor Called" << std::endl;
 }
 
 Form    *Intern::getRobo(std::string    target)
@@ -64,23 +65,24 @@ Form    *Intern::getPresident(std::string    target)
 Form    *Intern::makeForm(std::string   formToCreate, std::string   target)
 {
     Form    *(*function[3])(std::string);
-    std::string form[3];
+    std::string form[4];
     
     function[0] = &Intern::getPresident;
     function[1] = &Intern::getRobo;
     function[2] = &Intern::getShrub;
-    form[0] = "robotomy request";
-    form[1] = "presidential pardon";
+    form[1] = "robotomy request";
+    form[0] = "presidential pardon";
     form[2] = "shrubbery creation";
     
 	int i = 0;
-    while (formToCreate[i])
+    while (i < 3)
     {
+        std::cout << "compare " << formToCreate << " and " << form[i] << std::endl;
 		if (form[i] == formToCreate)
 			return (function[i](target));
         i++;
     }
-    std::cout << formToCreate << "and " << target << std::endl;
+    std::cout << "Intern Error : Cannot create the " << formToCreate << std::endl;
     return (NULL);
 }
 
