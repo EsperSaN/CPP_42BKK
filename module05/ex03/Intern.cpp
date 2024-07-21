@@ -69,9 +69,9 @@ Form    *Intern::makeForm(std::string   formToCreate, std::string   target)
     function[0] = &Intern::getPresident;
     function[1] = &Intern::getRobo;
     function[2] = &Intern::getShrub;
-    form[0] = "robotomyrequestform";
-    form[1] = "presidentialpardonform";
-    form[2] = "shrubberycreationform";
+    form[0] = "robotomy request";
+    form[1] = "presidential pardon";
+    form[2] = "shrubbery creation";
     
 	int i = 0;
     while (formToCreate[i])
