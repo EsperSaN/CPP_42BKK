@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:34:02 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/22 21:18:08 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/23 21:17:55 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	PresidentialPardonForm::execute(Bureaucrat	const	&executor) const
 {
 	if (this->getStatus() == false)
 	{
-		std::cout << this->getName() << " " << std::endl;
 		throw (AForm::FormNotSignYet());
 	}
 	if (this->getRequireExe() > executor.getGrade())
