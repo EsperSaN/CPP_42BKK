@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:34:02 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/06 21:38:35 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/22 21:18:08 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,11 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm	&other) : 
 
 void	PresidentialPardonForm::execute(Bureaucrat	const	&executor) const
 {
-
+	if (this->getStatus() == false)
+	{
+		std::cout << this->getName() << " " << std::endl;
+		throw (AForm::FormNotSignYet());
+	}
 	if (this->getRequireExe() > executor.getGrade())
 	{
         std::cout << this->_target << " pardoned by Zaphod Beeblebrox" << std::endl;

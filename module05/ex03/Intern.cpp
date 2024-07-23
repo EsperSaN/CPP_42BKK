@@ -77,7 +77,6 @@ Form    *Intern::makeForm(std::string   formToCreate, std::string   target)
 	int i = 0;
     while (i < 3)
     {
-        std::cout << "compare " << formToCreate << " and " << form[i] << std::endl;
 		if (form[i] == formToCreate)
 			return (function[i](target));
         i++;

@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:26:54 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/21 22:29:06 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/21 22:42:52 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ int main()
 
 	Form* test = wave.makeForm("shrubbery creation", "42");
 	Form*	ff = wave.makeForm("presidential pardon", "42");
+	Form*	fg = wave.makeForm("presidentialpardon", "42");
 	Bureaucrat	b("wave", 1);
 
 	b.executeForm(*test);

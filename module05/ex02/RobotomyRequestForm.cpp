@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:34:02 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/06 21:38:55 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/22 21:18:24 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm	&other) : AForm(oth
 
 void	RobotomyRequestForm::execute(Bureaucrat	const	&executor) const
 {
+	if (this->getStatus() == false)
+	{
+		std::cout << this->getName() << " " << std::endl;
+		throw (AForm::FormNotSignYet());
+	}
 	int         rint;
     std::srand(time(NULL));
 

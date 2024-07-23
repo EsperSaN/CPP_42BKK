@@ -13,14 +13,15 @@
 #pragma once
 
 #include <iostream>
-
+#include <sstream>
 #include "./Bureaucrat.hpp"
 
 //class forward declaration
 
 
-#define FTOO_HIGH	"AForm : The Grade is too high!!!"
+#define FTOO_HIGH	"Aform : The Grade is too high!!!"
 #define	FTOO_LOW	"AForm : The Grade is too low !!!"
+#define FNOT_SIGN	"AForm : Cannot Execute Form Not Sign Yet!!!"
 
 #define FDEF_CON	"AForm : void Constructor Called : "
 #define	FATT_CON "AForm : Attribute Constructor Called : "
@@ -64,6 +65,11 @@ class	AForm
 		{
         	public:
             	virtual const char* what() const throw();
+		};
+		class	FormNotSignYet : public	std::exception
+		{
+			public	:
+				virtual	const	char*	what()	const throw();
 		};
 };
 

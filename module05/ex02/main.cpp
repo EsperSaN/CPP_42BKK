@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:26:54 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/06 21:45:46 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/22 21:55:25 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	tryEXE(std::string	name, int level, std::string target, int	mode)
 			std::cout	<< *f << std::endl << *b << std::endl << std::endl;
 			b->executeForm(*f);
 			b->signForm(*f);
-			delete b;
+			b->executeForm(*f);
+			delete  b;
 			delete	f;
 		}
 		catch(std::exception	&e)
@@ -53,6 +54,7 @@ void	tryEXE(std::string	name, int level, std::string target, int	mode)
 			std::cout	<< *f << std::endl << *b << std::endl << std::endl;
 			b->executeForm(*f);
 			b->signForm(*f);
+			b->executeForm(*f);
 			delete b;
 			delete	f;
 		}
@@ -73,6 +75,7 @@ void	tryEXE(std::string	name, int level, std::string target, int	mode)
 			std::cout	<< *f << std::endl << *b << std::endl << std::endl;
 			b->executeForm(*f);
 			b->signForm(*f);
+			b->executeForm(*f);
 			delete b;
 			delete	f;
 		}

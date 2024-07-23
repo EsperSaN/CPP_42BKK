@@ -23,12 +23,12 @@ std::ostream &operator<<(std::ostream	&o,	AForm	&Aform)
 	return (o);
 }
 
-AForm::AForm(void) : _name(FDEF_NAME),	_reqGrade(FLOWEST_GRADE)	,_reqExe(FLOWEST_GRADE)
+AForm::AForm(void) : _name(FDEF_NAME), _signed(false) ,_reqGrade(FLOWEST_GRADE)	,_reqExe(FLOWEST_GRADE)
 {
 	std::cout << FDEF_CON << std::endl << *this << std::flush;
 }
 
-AForm::AForm(std::string	name, int	reqGrade, int	reqExe) : _name(name),  _reqGrade(reqGrade), _reqExe(reqExe)
+AForm::AForm(std::string	name, int	reqGrade, int	reqExe) : _name(name), _signed(false) ,  _reqGrade(reqGrade), _reqExe(reqExe)
 {
 	std::cout << FATT_CON << std::endl;
 	if (this->_reqExe < FMAXIMUM_GRADE || this->_reqGrade < FMAXIMUM_GRADE)
@@ -100,4 +100,9 @@ const	char	*AForm::GradeTooHighException::what() const throw()
 const	char	*AForm::GradeTooLowException::what()	const	throw()
 {
 	return (FTOO_LOW);
+}
+
+const	char	*AForm::FormNotSignYet::what()	const	throw()
+{
+	return (FNOT_SIGN);
 }
