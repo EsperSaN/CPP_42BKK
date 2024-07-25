@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 22:56:50 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/05 10:34:38 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/24 12:59:25 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef	FORM_HPP
+#define	FORM_HPP
 
 #include <iostream>
 
@@ -67,3 +68,5 @@ class	Form
 };
 
 std::ostream	&operator<<(std::ostream	&o,	Form	&form);
+
+#endif

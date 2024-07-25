@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:28:02 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/04 19:20:27 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/24 12:58:31 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef	BUREAUCRAT_HPP
+#define	BUREAUCRAT_HPP
 
 #include <iostream>
 
@@ -55,3 +56,5 @@ class Bureaucrat
 	};
 };
 std::ostream&	operator<<(std::ostream& os, Bureaucrat	&rhs);
+
+#endif

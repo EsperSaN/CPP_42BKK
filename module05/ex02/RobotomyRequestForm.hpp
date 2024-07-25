@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 22:56:50 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/06 21:14:04 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/24 13:02:00 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef	ROBOTOMYREQUESTFORM_HPP
+#define	ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
 #include <fstream>
@@ -37,3 +38,5 @@ class	RobotomyRequestForm : public AForm
 		~RobotomyRequestForm(void);
 		void	execute(class Bureaucrat	const	&executor) const;
 };
+
+#endif

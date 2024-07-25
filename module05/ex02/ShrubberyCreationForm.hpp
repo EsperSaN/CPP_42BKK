@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef	SHRUBBERYCREATIONFORM_HPP
+#define	SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
 #include <fstream>
@@ -54,3 +55,5 @@ class	ShrubberyCreationForm : public AForm
 		
 		void	execute(class Bureaucrat	const	&executor) const;
 };
+
+#endif

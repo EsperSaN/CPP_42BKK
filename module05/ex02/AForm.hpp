@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef	AFORM_HPP
+#define	AFORM_HPP
 
 #include <iostream>
 #include <sstream>
@@ -21,7 +22,7 @@
 
 #define FTOO_HIGH	"Aform : The Grade is too high!!!"
 #define	FTOO_LOW	"AForm : The Grade is too low !!!"
-#define FNOT_SIGN	"AForm : Cannot Execute Form Not Sign Yet!!!"
+#define FNOT_SIGN	"AForm : Form Not Sign Yet!!!"
 
 #define FDEF_CON	"AForm : void Constructor Called : "
 #define	FATT_CON "AForm : Attribute Constructor Called : "
@@ -74,3 +75,5 @@ class	AForm
 };
 
 std::ostream	&operator<<(std::ostream	&o,	AForm	&Aform);
+
+#endif

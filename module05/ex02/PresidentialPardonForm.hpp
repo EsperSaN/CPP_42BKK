@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 22:56:50 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/06 21:31:38 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/24 13:01:02 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef	PRESIDENTIALPARDONFORM_HPP
+#define	PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
 #include <fstream>
@@ -36,3 +37,5 @@ class	PresidentialPardonForm : public AForm
 		~PresidentialPardonForm(void);
 		void	execute(class Bureaucrat	const	&executor) const;
 };
+
+#endif
