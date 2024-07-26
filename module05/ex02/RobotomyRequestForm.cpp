@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:34:02 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/24 13:01:15 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/26 16:11:47 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 RobotomyRequestForm::RobotomyRequestForm(void) : AForm(RBFORM_NAME, RBF_SIGN, RBF_EXE)
 {
-	std::cout << this->getName() << " : "<< FDEF_CON << std::endl << *this << std::flush;
+	// std::cout << this->getName() << " : "<< FDEF_CON << std::endl << *this << std::flush;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string	name) : AForm(RBFORM_NAME, RBF_SIGN, RBF_EXE)
 {
 	this->_target = name;
-    std::cout << this->getName() << " : "<< FATT_CON << std::endl;
+    // std::cout << this->getName() << " : "<< FATT_CON << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(void)
 {
-	std::cout << RB_FORM_DECON << std::endl;
+	// std::cout << RB_FORM_DECON << std::endl;
 }
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=(const	RobotomyRequestForm	&rhs)
@@ -54,7 +54,7 @@ void	RobotomyRequestForm::execute(Bureaucrat	const	&executor) const
         if ((rint % 2) == 1)
             std::cout << this->_target << " has been robotomized" << std::endl;
         else
-            std::cout << this->_target << " failed" << std::endl;
+            std::cout << this->_target << " robotomy failed" << std::endl;
 	}
 	else
         throw (AForm::GradeTooLowException());

@@ -14,18 +14,18 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm(FORM_NAME, SCF_SIGN, SCF_EXE)
 {
-	std::cout << this->getName() << " : "<< FDEF_CON << std::endl << *this << std::flush;
+	// std::cout << this->getName() << " : "<< FDEF_CON << std::endl << *this << std::flush;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string	name) : AForm(FORM_NAME, SCF_SIGN, SCF_EXE)
 {
 	this->_target = name;
-    std::cout << this->getName() << " : "<< FATT_CON << std::endl;
+    // std::cout << this->getName() << " : "<< FATT_CON << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
 {
-	std::cout << SH_FORM_DECON << std::endl;
+	// std::cout << SH_FORM_DECON << std::endl;
 }
 
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const	ShrubberyCreationForm	&rhs)

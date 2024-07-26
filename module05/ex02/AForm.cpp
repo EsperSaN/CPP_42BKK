@@ -25,12 +25,12 @@ std::ostream &operator<<(std::ostream	&o,	AForm	&Aform)
 
 AForm::AForm(void) : _name(FDEF_NAME), _signed(false) ,_reqGrade(FLOWEST_GRADE)	,_reqExe(FLOWEST_GRADE)
 {
-	std::cout << FDEF_CON << std::endl << *this << std::flush;
+	// std::cout << FDEF_CON << std::endl << *this << std::flush;
 }
 
 AForm::AForm(std::string	name, int	reqGrade, int	reqExe) : _name(name), _signed(false) ,  _reqGrade(reqGrade), _reqExe(reqExe)
 {
-	std::cout << FATT_CON << std::endl;
+	// std::cout << FATT_CON << std::endl;
 	if (this->_reqExe < FMAXIMUM_GRADE || this->_reqGrade < FMAXIMUM_GRADE)
 		throw	AForm::GradeTooHighException();
 	if (this->_reqExe > FLOWEST_GRADE || this->_reqGrade > FLOWEST_GRADE)
@@ -39,7 +39,7 @@ AForm::AForm(std::string	name, int	reqGrade, int	reqExe) : _name(name), _signed(
 
 AForm::AForm(std::string	name, int	reqGrade, int	reqExe,	int	sign) : _name(name), _signed(sign),_reqGrade(reqGrade), _reqExe(reqExe)
 {
-	std::cout << this->getName() << " : "<< FATT_CON << std::endl;
+	// std::cout << this->getName() << " : "<< FATT_CON << std::endl;
 	if (this->_reqExe < FMAXIMUM_GRADE || this->_reqGrade < FMAXIMUM_GRADE)
 		throw	AForm::GradeTooHighException();
 	if (this->_reqExe > FLOWEST_GRADE || this->_reqGrade > FLOWEST_GRADE)
@@ -48,13 +48,13 @@ AForm::AForm(std::string	name, int	reqGrade, int	reqExe,	int	sign) : _name(name)
 
 AForm::AForm(AForm &other) : _name(other.getName()), _signed(other.getStatus()), _reqGrade(other.getRequireGrade()), _reqExe(other.getRequireExe())
 {
-	std::cout << FCPY_CON << std::endl;
-	std::cout	<< this << std::endl;
+	// std::cout << FCPY_CON << std::endl;
+	// std::cout	<< this << std::endl;
 }
 
 AForm::~AForm(void)
 {
-	std::cout << FDE_CON << this->_name << std::endl;
+	// std::cout << FDE_CON << this->_name << std::endl;
 }
 
 AForm	&AForm::operator=(const	AForm	&rhs)
