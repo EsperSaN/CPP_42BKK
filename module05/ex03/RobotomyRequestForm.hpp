@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 22:56:50 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/06 23:11:47 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/24 13:02:00 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef	ROBOTOMYREQUESTFORM_HPP
+#define	ROBOTOMYREQUESTFORM_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <fstream>
 #include <ctime>
 #include <cstdlib>
@@ -24,7 +25,7 @@
 #define RB_FORM_DECON "RobotomyRequestForm : Deconstructor Called : RobotomyRequestForm"
 
 
-class	RobotomyRequestForm : public Form
+class	RobotomyRequestForm : public AForm
 {
 	private :	
 		std::string	_target;
@@ -37,3 +38,5 @@ class	RobotomyRequestForm : public Form
 		~RobotomyRequestForm(void);
 		void	execute(class Bureaucrat	const	&executor) const;
 };
+
+#endif

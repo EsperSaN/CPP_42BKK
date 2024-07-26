@@ -15,19 +15,19 @@
 
 Intern::Intern(void)
 {
-	std::cout << "Intern : Constructor Call" <<  std::endl;
+	// std::cout << "Intern : Constructor Call" <<  std::endl;
 }
 
 
 Intern::Intern(const	Intern&	other)
 {
-	std::cout << "Intern : Copy constructor Call : Intern do Nothing" << std::endl;
+	// std::cout << "Intern : Copy constructor Call : Intern do Nothing" << std::endl;
     (void)other;
 }
 
 Intern	&Intern::operator=(const	Intern&	rhs)
 {
-    std::cout << "Intern : Assignment Operator Call" << std::endl;
+    // std::cout << "Intern : Assignment Operator Call" << std::endl;
 	if (this == &rhs)
 		return (*this);
 	return (*this);
@@ -35,36 +35,36 @@ Intern	&Intern::operator=(const	Intern&	rhs)
 
 Intern::~Intern(void)
 {
-	std::cout << "Intern : Deconstructor Called" << std::endl;
+	// std::cout << "Intern : Deconstructor Called" << std::endl;
 }
 
-Form    *Intern::getRobo(std::string    target)
+AForm    *Intern::getRobo(std::string    target)
 {
-    Form    *ret;
+    AForm    *ret;
     
     ret = new RobotomyRequestForm(target);
     return (ret);
 }
 
-Form    *Intern::getShrub(std::string   target)
+AForm    *Intern::getShrub(std::string   target)
 {
-    Form    *ret;
+    AForm    *ret;
 
     ret = new ShrubberyCreationForm(target);
     return (ret);
 }
 
-Form    *Intern::getPresident(std::string    target)
+AForm    *Intern::getPresident(std::string    target)
 {
-    Form    *ret;
+    AForm    *ret;
     
     ret = new PresidentialPardonForm(target);
     return (ret);
 }
 
-Form    *Intern::makeForm(std::string   formToCreate, std::string   target)
+AForm    *Intern::makeForm(std::string   formToCreate, std::string   target)
 {
-    Form    *(*function[3])(std::string);
+    AForm    *(*function[3])(std::string);
     std::string form[4];
     
     function[0] = &Intern::getPresident;
@@ -78,8 +78,11 @@ Form    *Intern::makeForm(std::string   formToCreate, std::string   target)
     while (i < 3)
     {
 		if (form[i] == formToCreate)
+		{
+			std::cout << "Intern creates " << formToCreate << std::endl;
 			return (function[i](target));
-        i++;
+		}
+		i++;
     }
     std::cout << "Intern Error : Cannot create the " << formToCreate << std::endl;
     return (NULL);

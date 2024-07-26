@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:26:54 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/21 22:42:52 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/26 16:39:13 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	tryEXE(std::string	name, int level, std::string target, int	mode)
 {
 	std::cout << "\n------------------ TRY EXE -------------------------\n" << std::flush;
 	Bureaucrat	*b;
-	Form		*f;
+	AForm		*f;
 
 	if (mode == SH)
 	{
@@ -93,11 +93,11 @@ int main()
 {
 	Intern	wave;
 
-	Form* test = wave.makeForm("shrubbery creation", "42");
-	Form*	ff = wave.makeForm("presidential pardon", "42");
-	Form*	fg = wave.makeForm("presidentialpardon", "42");
+	AForm* test = wave.makeForm("shrubbery creation", "42");
+	AForm*	ff = wave.makeForm("presidential pardon", "42");
+	//AForm*	fg = wave.makeForm("presidentialpardon", "42");
 	Bureaucrat	b("wave", 1);
-
+	b.signForm(*test);
 	b.executeForm(*test);
 	
 	b.executeForm(*ff);

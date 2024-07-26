@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 22:56:50 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/06 23:11:25 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/24 13:01:02 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef	PRESIDENTIALPARDONFORM_HPP
+#define	PRESIDENTIALPARDONFORM_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <fstream>
 #include <ctime>
 #include <cstdlib>
@@ -23,7 +24,7 @@
 #define PP_FORM_DECON "PresidentialPardonForm : Deconstructor Called : PresidentialPardonForm"
 
 
-class	PresidentialPardonForm : public Form
+class	PresidentialPardonForm : public AForm
 {
 	private :	
 		std::string	_target;
@@ -36,3 +37,5 @@ class	PresidentialPardonForm : public Form
 		~PresidentialPardonForm(void);
 		void	execute(class Bureaucrat	const	&executor) const;
 };
+
+#endif

@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 22:56:50 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/06 23:09:54 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/05 10:34:38 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef	AFORM_HPP
+#define	AFORM_HPP
 
 #include <iostream>
-
+#include <sstream>
 #include "./Bureaucrat.hpp"
 
 //class forward declaration
 
 
-#define FTOO_HIGH	"Form : The Grade is too high!!!"
-#define	FTOO_LOW	"Form : The Grade is too low !!!"
+#define FTOO_HIGH	"Aform : The Grade is too high!!!"
+#define	FTOO_LOW	"AForm : The Grade is too low !!!"
+#define FNOT_SIGN	"AForm : Form Not Sign Yet!!!"
 
-#define FDEF_CON	"Form : void Constructor Called : "
-#define	FATT_CON "Form : Attribute Constructor Called : "
-#define	FDE_CON	"Form : Deconstructor Called : "
-#define	FCPY_CON	"Form : Copy Constructor Called : "
-#define	FAS_OP	"Form : Assignment Operator Called : "
+#define FDEF_CON	"AForm : void Constructor Called : "
+#define	FATT_CON "AForm : Attribute Constructor Called : "
+#define	FDE_CON	"AForm : Deconstructor Called : "
+#define	FCPY_CON	"AForm : Copy Constructor Called : "
+#define	FAS_OP	"AForm : Assignment Operator Called : "
 
 #define	FLOWEST_GRADE 150
 #define	FMAXIMUM_GRADE	1
 #define	FDEF_NAME "Default contact"
 
 
-class	Form
+class	AForm
 {
 	private :	
 		const	std::string	_name;
@@ -41,12 +43,12 @@ class	Form
 		const	int	_reqGrade;
 		const	int	_reqExe;
 	public	:
-		Form(void);
-		Form(std::string	name,	int	reqGrade, int	reqExe);
-		Form(std::string	name, int	reqGrade, int	reqExe,	int	sign);
-		Form(Form	&other);
-		virtual	~Form(void);
-		Form				&operator=(const	Form	&rhs);
+		AForm(void);
+		AForm(std::string	name,	int	reqGrade, int	reqExe);
+		AForm(std::string	name, int	reqGrade, int	reqExe,	int	sign);
+		AForm(AForm	&other);
+		virtual	~AForm(void);
+		AForm				&operator=(const	AForm	&rhs);
 		
 		bool				getStatus(void) const;
 		int					getRequireGrade(void);
@@ -65,6 +67,13 @@ class	Form
         	public:
             	virtual const char* what() const throw();
 		};
+		class	FormNotSignYet : public	std::exception
+		{
+			public	:
+				virtual	const	char*	what()	const throw();
+		};
 };
 
-std::ostream	&operator<<(std::ostream	&o,	Form	&form);
+std::ostream	&operator<<(std::ostream	&o,	AForm	&Aform);
+
+#endif

@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef	SHRUBBERYCREATIONFORM_HPP
+#define	SHRUBBERYCREATIONFORM_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <fstream>
 
 #define SCF_EXE     137
@@ -39,7 +40,7 @@
        .         .   .   000     .        .       .\n\
 .. .. ..................O000O........................ ......"
 
-class	ShrubberyCreationForm : public Form
+class	ShrubberyCreationForm : public AForm
 {
 	private :	
 		std::string	_target;
@@ -54,3 +55,5 @@ class	ShrubberyCreationForm : public Form
 		
 		void	execute(class Bureaucrat	const	&executor) const;
 };
+
+#endif

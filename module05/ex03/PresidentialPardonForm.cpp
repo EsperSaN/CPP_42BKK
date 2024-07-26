@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:34:02 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/06 23:10:58 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/26 16:10:28 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void) : Form(PPFORM_NAME, PPF_SIGN, PPF_EXE)
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm(PPFORM_NAME, PPF_SIGN, PPF_EXE)
 {
-	std::cout << this->getName() << " : "<< FDEF_CON << std::endl << *this << std::flush;
+	// std::cout << this->getName() << " : "<< FDEF_CON << std::endl << *this << std::flush;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string	name) : Form(PPFORM_NAME, PPF_SIGN, PPF_EXE)
+PresidentialPardonForm::PresidentialPardonForm(std::string	name) : AForm(PPFORM_NAME, PPF_SIGN, PPF_EXE)
 {
 	this->_target = name;
-    std::cout << this->getName() << " : "<< FATT_CON << std::endl;
+    // std::cout << this->getName() << " : "<< FATT_CON << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(void)
 {
-	std::cout << PP_FORM_DECON << std::endl;
+	// std::cout << PP_FORM_DECON << std::endl;
 }
 
 PresidentialPardonForm	&PresidentialPardonForm::operator=(const	PresidentialPardonForm	&rhs)
@@ -35,17 +35,20 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(const	PresidentialPard
 	return (*this);
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm	&other) : Form(other.getName(), other.getRequireGrade(), other.getRequireExe(), other.getStatus())
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm	&other) : AForm(other.getName(), other.getRequireGrade(), other.getRequireExe(), other.getStatus())
 {    
 }
 
 void	PresidentialPardonForm::execute(Bureaucrat	const	&executor) const
 {
-
+	if (this->getStatus() == false)
+	{
+		throw (AForm::FormNotSignYet());
+	}
 	if (this->getRequireExe() > executor.getGrade())
 	{
         std::cout << this->_target << " pardoned by Zaphod Beeblebrox" << std::endl;
 	}
 	else
-        throw (Form::GradeTooLowException());
+        throw (AForm::GradeTooLowException());
 }

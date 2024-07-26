@@ -12,20 +12,20 @@
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : Form(FORM_NAME, SCF_SIGN, SCF_EXE)
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm(FORM_NAME, SCF_SIGN, SCF_EXE)
 {
-	std::cout << this->getName() << " : "<< FDEF_CON << std::endl << *this << std::flush;
+	// std::cout << this->getName() << " : "<< FDEF_CON << std::endl << *this << std::flush;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string	name) : Form(FORM_NAME, SCF_SIGN, SCF_EXE)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string	name) : AForm(FORM_NAME, SCF_SIGN, SCF_EXE)
 {
 	this->_target = name;
-    std::cout << this->getName() << " : "<< FATT_CON << std::endl;
+    // std::cout << this->getName() << " : "<< FATT_CON << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
 {
-	std::cout << SH_FORM_DECON << std::endl;
+	// std::cout << SH_FORM_DECON << std::endl;
 }
 
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const	ShrubberyCreationForm	&rhs)
@@ -35,12 +35,16 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const	ShrubberyCreationF
 	return (*this);
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm	&other) : Form(other.getName(), other.getRequireGrade(), other.getRequireExe(), other.getStatus())
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm	&other) : AForm(other.getName(), other.getRequireGrade(), other.getRequireExe(), other.getStatus())
 {    
 }
 
 void	ShrubberyCreationForm::execute(Bureaucrat	const	&executor) const
 {
+	if (this->getStatus() == false)
+	{
+		throw (AForm::FormNotSignYet());
+	}
 	std::fstream	out;
 	std::string		outfile;
 
@@ -59,5 +63,5 @@ void	ShrubberyCreationForm::execute(Bureaucrat	const	&executor) const
 		}
 	}
 	else
-		throw (Form::GradeTooLowException());
+		throw (AForm::GradeTooLowException());
 }

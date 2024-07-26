@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:28:02 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/09 20:30:31 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/24 12:59:45 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef	BUREAUCRAT_HPP
+#define	BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 #define	DEF_NAME "Default"
 #define	MAXIMUM_GRADE	1
@@ -43,8 +44,8 @@ class Bureaucrat
 		void		decrement(void);
 		std::string	getName(void) const;
 		int			getGrade(void) const;
-		void		signForm(class Form &AformToSign);
-		void		executeForm(class Form const & form);
+		void		signForm(class AForm &AformToSign);
+		void		executeForm(class AForm const & form);
 
 	class	GradeTooHighException : public std::exception
 	{
@@ -58,3 +59,5 @@ class Bureaucrat
 	};
 };
 std::ostream&	operator<<(std::ostream& os, Bureaucrat	&rhs);
+
+#endif
