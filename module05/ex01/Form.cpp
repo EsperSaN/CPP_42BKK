@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pruenrua <pruenrua@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:34:02 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/05 10:41:52 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/26 16:03:36 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ std::ostream &operator<<(std::ostream	&o,	Form	&form)
 	return (o);
 }
 
-Form::Form(void) : _name(FDEF_NAME),	_reqGrade(FLOWEST_GRADE)	,_reqExe(FLOWEST_GRADE)
+Form::Form(void) : _name(FDEF_NAME), _signed(false),_reqGrade(FLOWEST_GRADE)	,_reqExe(FLOWEST_GRADE)
 {
-	std::cout << FDEF_CON << std::endl << *this << std::flush;
+	// std::cout << FDEF_CON << std::endl << *this << std::flush;
 }
 
-Form::Form(std::string	name, int	reqGrade, int	reqExe) : _name(name),  _reqGrade(reqGrade), _reqExe(reqExe)
+Form::Form(std::string	name, int	reqGrade, int	reqExe) : _name(name), _signed(false),  _reqGrade(reqGrade), _reqExe(reqExe)
 {
 	if (this->_reqExe < FMAXIMUM_GRADE || this->_reqGrade < FMAXIMUM_GRADE)
 		throw	Form::GradeTooHighException();
@@ -38,13 +38,13 @@ Form::Form(std::string	name, int	reqGrade, int	reqExe) : _name(name),  _reqGrade
 
 Form::Form(Form &other) : _name(other.getName()), _signed(other.getStatus()), _reqGrade(other.getRequireGrade()), _reqExe(other.getRequireExe())
 {
-	std::cout << FCPY_CON << std::endl;
-	std::cout	<< this << std::endl;
+	// std::cout << FCPY_CON << std::endl;
+	// std::cout	<< this << std::endl;
 }
 
 Form::~Form(void)
 {
-	std::cout << FDE_CON << this->_name << std::endl;
+	// std::cout << FDE_CON << this->_name << std::endl;
 }
 
 Form	&Form::operator=(const	Form	&rhs)
