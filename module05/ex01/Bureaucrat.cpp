@@ -6,7 +6,7 @@
 /*   By: pruenrua <pruenrua@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:27:42 by pruenrua          #+#    #+#             */
-/*   Updated: 2024/07/26 15:56:51 by pruenrua         ###   ########.fr       */
+/*   Updated: 2024/07/26 19:04:18 by pruenrua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ void	Bureaucrat::signForm(Form	&formToSign)
 	catch (std::exception	&e)
 	{
 		std::cout << this->getName() << " couldn't sign " << formToSign.getName() << \
-		" because " << e.what() << " require Grade : " << formToSign.getRequireGrade() \
-		<< " but "  << this->getName() << " have " << this->getGrade() <<std::endl;
+		" because " << e.what() <<std::endl;
 	}	
 }
